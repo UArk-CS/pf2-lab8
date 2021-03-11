@@ -55,6 +55,8 @@ void Stack::Push(int Number)
     Temp->Next = Head;
     Head = Temp;
     Length++;
+
+//    cout << Number << endl;
 }
 
 //-----------------------------------------------------------
@@ -74,6 +76,8 @@ void Stack::Pop(int &Number)
     Head = Head->Next;
     delete Temp;
     Length--;
+
+//    cout << Number << endl;
 }
 
 //-----------------------------------------------------------
@@ -81,7 +85,15 @@ void Stack::Pop(int &Number)
 //-----------------------------------------------------------
 void Stack::Top(int &Number)
 {
-    // ADD HERE
+
+    if (IsEmpty()) {
+        return;
+    }
+
+    Number = Head->Number;
+
+    cout << Number << endl;
+
 }
 
 //-----------------------------------------------------------
@@ -89,5 +101,18 @@ void Stack::Top(int &Number)
 //-----------------------------------------------------------
 void Stack::Print()
 {
-    // ADD HERE
+
+    SNode *Temp;
+    int num;
+    Temp = Head;
+
+    for (int i = 0; i < Length; i++) {
+
+        num = Temp->Number;
+        cout << num << endl;
+
+        Temp = Temp->Next;
+
+    }
+
 }
